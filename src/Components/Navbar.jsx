@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -22,6 +23,7 @@ const Navbar = () => {
         // add custom data-theme attribute to html tag required to update theme using DaisyUI
         document.querySelector("html").setAttribute("data-theme", localTheme);
     }, [theme]);
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -41,7 +43,7 @@ const Navbar = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-xl">Himalayans</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -59,7 +61,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <Link to='/login' className="btn">Login</Link>
             </div>
             {/* Dark and light switcher */}
             <div className="px-4">
@@ -79,7 +81,7 @@ const Navbar = () => {
 
                 </label>
             </div>
-        </div>
+        </div >
     );
 };
 
