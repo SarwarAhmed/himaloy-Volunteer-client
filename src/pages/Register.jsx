@@ -1,11 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AuthContext } from '../providers/AuthProviders'
 import Swal from 'sweetalert2'
 const Registration = () => {
     const navigate = useNavigate()
-    const { signInWithGoogle, createUser, updateUserProfile, user, setUser } =
+    const { signInWithGoogle, createUser, updateUserProfile, user, setUser, loading } =
         useContext(AuthContext)
+
+    // if user logged in redirect to home page
+    useEffect(() => {
+        if (user) navigate("/")
+    }, [navigate, user])
 
     const handleSignUp = async e => {
         e.preventDefault()
@@ -56,6 +61,8 @@ const Registration = () => {
             });
         }
     }
+
+    if (user || loading) return null;
 
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
@@ -170,8 +177,8 @@ const Registration = () => {
                         </span>
                     </div>
                     <div className='flex items-center justify-between mt-4'>
-                        <span className='w-1/5 border-b  md:w-1/4'></span>
-                        <p className='text-xs text-gray-500 uppercase'>Not a memeber</p>
+                        <span className='w-1/12 border-b  md:w-1/12'></span>
+                        <p className='text-xs text-gray-500 uppercase'>Already Registered?</p>
 
                         <Link
                             to='/login'
@@ -180,7 +187,7 @@ const Registration = () => {
                             Login In
                         </Link>
 
-                        <span className='w-1/5 border-b  md:w-1/4'></span>
+                        <span className='w-1/12 border-b  md:w-1/12'></span>
                     </div>
                 </div>
             </div>
