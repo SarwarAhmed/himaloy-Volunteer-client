@@ -2,27 +2,37 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 import { AuthContext } from '../providers/AuthProviders'
 import Swal from 'sweetalert2'
+import axios from 'axios'
 const Login = () => {
     const navigate = useNavigate()
     const { signIn, signInWithGoogle, user, loading } = useContext(AuthContext)
 
 
+    const from = location.state || '/'
 
     // if user logged in redirect to home page
     useEffect(() => {
         if (user) navigate("/")
     }, [navigate, user])
 
+
     // Google Signin
     const handleGoogleSignIn = async () => {
         try {
-            await signInWithGoogle()
+            const result = await signInWithGoogle()
+
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, {
+                email: result?.user?.email,
+            }, { withCredentials: true });
+
+            console.log(data);
+
             Swal.fire({
                 icon: 'success',
                 title: 'Success',
                 text: 'Signin Successful',
             })
-            navigate('/')
+            navigate(from, { replace: true })
         } catch (err) {
             console.log(err)
             Swal.fire({
@@ -43,8 +53,15 @@ const Login = () => {
         try {
             //User Login
             const result = await signIn(email, pass)
-            console.log(result)
-            navigate('/')
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_API_URL}/jwt`,
+                {
+                    email: result?.user?.email,
+                },
+                { withCredentials: true }
+            )
+            console.log(data)
+            navigate(from, { replace: true })
             Swal.fire({
                 icon: 'success',
                 title: 'Success',

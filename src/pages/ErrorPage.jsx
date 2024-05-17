@@ -133,7 +133,7 @@ const ErrorPage = () => {
                 </g>
             </svg>
             </div>
-            <div className='flex justify-center'>
+            <div className='flex justify-center absolute top-0 text-center w-full pt-10'>
                 <Link to='/' rel="noopener noreferrer" className="w-44 justify-center text-center px-8 py-3 font-semibold rounded bg-amber-600 text-gray-50">Back to Home</Link>
             </div>
         </div>

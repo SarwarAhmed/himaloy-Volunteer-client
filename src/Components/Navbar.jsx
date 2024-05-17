@@ -11,8 +11,6 @@ const Navbar = () => {
     const handleSignOut = () => {
         logOut()
             .then(
-                // console.log('Sign Out Successfully');
-                // swal('Success', 'Sign Out Successfully', 'success')
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
@@ -113,7 +111,7 @@ const Navbar = () => {
                                 </ul>
                             </div>
                             :
-                            <a href="/login" className="btn btn-primary">Login</a>
+                            <Link to="/login" className="btn btn-primary">Login</Link>
                     }
                 </div>
 
