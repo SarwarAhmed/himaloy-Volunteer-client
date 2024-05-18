@@ -20,6 +20,18 @@ const Registration = () => {
         const name = form.name.value
         const photo = form.photo.value
         const pass = form.password.value
+
+        // Password validation
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
+        if (!passwordRegex.test(pass)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Password must have at least 6 characters, including an uppercase letter and a lowercase letter.'
+            })
+            return
+        }
+
         console.log({ email, pass, name, photo })
         try {
             //2. User Registration
@@ -94,7 +106,6 @@ const Registration = () => {
                             </label>
                             <input
                                 id='name'
-                                autoComplete='name'
                                 name='name'
                                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                                 type='text'
@@ -109,7 +120,6 @@ const Registration = () => {
                             </label>
                             <input
                                 id='photo'
-                                autoComplete='photo'
                                 name='photo'
                                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                                 type='text'
