@@ -69,7 +69,7 @@ const AddVolunteerPost = () => {
     return (
         <div className='container max-w-5xl mx-auto bg-white dark:bg-slate-800 rounded-lg px-6 py-8 my-10 ring-1 ring-slate-900/5 shadow-xl'>
             <div className="border-b border-gray-900/10 pb-12 dark:text-white">
-                <h2 className="text-base font-semibold leading-7 text-gray-500 text-center">Add Volunter Post</h2>
+                <h2 className="text-base font-semibold leading-7 text-gray-500 text-center">Add Volunteer Post</h2>
 
                 <form onSubmit={handleSubmit}>
                     <div className="space-y-12">
@@ -114,7 +114,7 @@ const AddVolunteerPost = () => {
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     ></textarea>
                                 </div>
-                                <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400">Write a few sentences about your Volunter post</p>
+                                <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400">Write a few sentences about your Volunteer post</p>
                             </div>
 
                             <div className="sm:col-span-1">
@@ -124,11 +124,12 @@ const AddVolunteerPost = () => {
                                 <div className="mt-2">
                                     <select
                                         id="category"
-                                        value="category"
+                                        name="category"
+                                        defaultValue="category"
                                         autoComplete="category-name"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                     >
-                                        <option selected disabled>Select One</option>
+                                        <option disabled>Select One</option>
                                         <option value="healthcare">Healthcare</option>
                                         <option value="education">Education</option>
                                         <option value="social-service">Social Service</option>
@@ -137,10 +138,6 @@ const AddVolunteerPost = () => {
                                 </div>
                             </div>
 
-
-
-
-                            {/* Deadline => Take the date using React datepicker */}
                             <div className="sm:col-span-1">
                                 <label htmlFor="deadline" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                                     Deadline
@@ -151,7 +148,6 @@ const AddVolunteerPost = () => {
                                 </div>
                             </div>
 
-                            {/* no. of volunteers needed type number  */}
                             <div className="sm:col-span-2">
                                 <label htmlFor="number-of-volunteers" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                                     No. of Volunteers
@@ -165,16 +161,22 @@ const AddVolunteerPost = () => {
                                     />
                                 </div>
                             </div>
-                            {/* location type text */}
+
                             <div className="sm:col-span-2">
                                 <label htmlFor="location" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                                     Location
                                 </label>
                                 <div className="mt-2">
                                     <input
-                                        type="text" name="location" id="location" autoComplete="location" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                                        type="text"
+                                        name="location"
+                                        id="location"
+                                        autoComplete="location"
+                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    />
                                 </div>
                             </div>
+
                             <div className="mt-6 flex items-center justify-end gap-x-6">
                                 <Link to={'/'} className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
                                     Cancel
