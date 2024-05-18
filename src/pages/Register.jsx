@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 import { AuthContext } from '../providers/AuthProviders'
 import Swal from 'sweetalert2'
+import axios from 'axios'
 const Registration = () => {
     const navigate = useNavigate()
     const { signInWithGoogle, createUser, updateUserProfile, user, setUser, loading } =
@@ -25,7 +26,18 @@ const Registration = () => {
             const result = await createUser(email, pass)
             console.log(result)
             await updateUserProfile(name, photo)
-            setUser({ ...user, photoURL: photo, displayName: name })
+            setUser({ ...result?.user, photoURL: photo, displayName: name })
+
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_API_URL}/jwt`,
+                {
+                    email: result?.user?.email,
+                },
+                { withCredentials: true }
+            )
+
+            console.log(data);
+
             navigate('/')
             Swal.fire({
                 icon: 'success',

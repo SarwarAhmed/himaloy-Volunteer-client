@@ -64,15 +64,15 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <Link to={"/"} className="btn btn-ghost text-xl">Himalayan</Link>
+                    <Link to={"/"} className="btn btn-ghost text-xl">
+                        <img className="h-5" src="./letter-h.svg" alt="Himaloyan" />
+                        <span>Himalayan</span>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li>
                             <Link to={'/'}>Home</Link>
-                        </li>
-                        <li>
-                            <Link to={"/need-volunteer"}>Need Volunteer</Link>
                         </li>
                         {
                             user &&
@@ -80,6 +80,9 @@ const Navbar = () => {
                                 <Link to="/add-volunteer-post">Add Volunteer Post</Link>
                             </li>
                         }
+                        <li>
+                            <Link to={"/need-volunteer"}>Need Volunteer</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -98,6 +101,14 @@ const Navbar = () => {
                                 </div>
                                 <ul tabIndex={0} className="z-50 mt-3 xz-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                                     <li>
+                                        <Link to="/add-volunteer-post" className="justify-between">
+                                            Add Volunteer Post
+                                        </Link>
+
+                                        <Link to="/manage-my-post" className="justify-between">
+                                            Manage My Post
+                                        </Link>
+
                                         <Link to="/profile" className="justify-between">
                                             Profile
                                         </Link>

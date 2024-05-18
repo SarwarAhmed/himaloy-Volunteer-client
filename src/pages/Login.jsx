@@ -20,6 +20,7 @@ const Login = () => {
     const handleGoogleSignIn = async () => {
         try {
             const result = await signInWithGoogle()
+            console.log(result?.user);
 
             const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, {
                 email: result?.user?.email,
