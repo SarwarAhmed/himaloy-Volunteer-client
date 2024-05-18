@@ -28,12 +28,12 @@ const Login = () => {
 
             console.log(data);
 
+            navigate(from, { replace: true })
             Swal.fire({
                 icon: 'success',
                 title: 'Success',
                 text: 'Signin Successful',
             })
-            navigate(from, { replace: true })
         } catch (err) {
             console.log(err)
             Swal.fire({

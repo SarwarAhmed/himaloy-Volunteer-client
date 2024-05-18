@@ -1,17 +1,9 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Typewriter } from 'react-simple-typewriter'
 
 const Slide = ({ post }) => {
 
     const { _id, thumbnail, title, category, deadline, numberOfVolunteers } = post || {}
-
-    // set category to update
-    useEffect(() => {
-        document.title = `Category: ${category}`
-        document.deadline = `Deadline: ${deadline}`
-        document.numberOfVolunteers = `No. Of Volunteer Needed: ${numberOfVolunteers}`
-    }, [category, deadline, numberOfVolunteers])
 
     return (
         <div

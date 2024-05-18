@@ -13,6 +13,10 @@ const Registration = () => {
         if (user) navigate("/")
     }, [navigate, user])
 
+    useEffect(() => {
+        document.title = 'Register';
+    }, []);
+
     const handleSignUp = async e => {
         e.preventDefault()
         const form = e.target

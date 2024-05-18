@@ -8,6 +8,10 @@ const ManageMyPosts = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
+        document.title = 'Manage My Posts';
+    }, []);
+
+    useEffect(() => {
         if (!user) return;
         axios.get(`${import.meta.env.VITE_API_URL}/my-posts/${user.email}`, {
             withCredentials: true,

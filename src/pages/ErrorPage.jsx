@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import './error.css';
+import { useEffect } from 'react';
 
 const ErrorPage = () => {
+    useEffect(() => {
+        document.title = '404 Page Not Found';
+    }, []);
+
     return (
         <div className=''>
 

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,6 +10,10 @@ const AddVolunteerPost = () => {
     const { user } = useContext(AuthContext);
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate();
+
+    useEffect(() => {
+        document.title = 'Add Volunteer Post';
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
