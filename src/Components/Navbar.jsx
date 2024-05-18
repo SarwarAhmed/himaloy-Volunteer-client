@@ -105,7 +105,7 @@ const Navbar = () => {
                                             Add Volunteer Post
                                         </Link>
 
-                                        <Link to="/manage-my-post" className="justify-between">
+                                        <Link to="/manage-my-posts" className="justify-between">
                                             Manage My Post
                                         </Link>
 

@@ -53,8 +53,7 @@ const AddVolunteerPost = () => {
             form.reset();
 
             //  TODO : Redirect to my-volunteer-posts
-            // navigate('/my-volunteer-posts')
-            navigate('/');
+            navigate('/manage-my-posts')
         } catch (error) {
             console.log(error);
             Swal.fire({
@@ -175,6 +174,16 @@ const AddVolunteerPost = () => {
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
+                            </div>
+                            <div className="sm:col-span-3">
+                                <p className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
+                                    Organizer Name: {user?.displayName}
+                                </p>
+                            </div>
+                            <div className="sm:col-span-3">
+                                <p className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
+                                    Organizer Name: {user?.email}
+                                </p>
                             </div>
 
                             <div className="mt-6 flex items-center justify-end gap-x-6">
