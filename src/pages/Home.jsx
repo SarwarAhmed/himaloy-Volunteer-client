@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Carousel from "../Components/Carousel";
+import Heroes from "./Heroes";
 
 const Home = () => {
     useEffect(() => {
@@ -9,6 +10,7 @@ const Home = () => {
     return (
         <div>
             <Carousel />
+            <Heroes />
         </div>
     );
 };

@@ -7,7 +7,7 @@ const Slide = ({ post }) => {
 
     return (
         <div
-            className='w-full bg-center bg-cover h-[38rem]'
+            className='w-full bg-center bg-cover h-[38rem] rounded-lg'
             style={{
                 backgroundImage: `url(${thumbnail})`,
             }}
@@ -31,9 +31,17 @@ const Slide = ({ post }) => {
                     <br />
 
                     <Link
-                        to={`/volunteer-post/${_id}`}
-                        className='px-6 py-3 uppercase mt-4 text-lg font-semibold text-white bg-indigo-500 rounded-lg hover:bg-indigo-600'>
-                        show details
+                        to={`/volunteer-post/${_id}`}>
+                        <button className="group w-36 relative rounded-full p-px text-[0.8125rem] font-semibold leading-6 shadow-xl shadow-zinc-950">
+                            <span className="absolute inset-0 overflow-hidden rounded-full">
+                                <span className="absolute inset-0 rounded-full dark:bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                                </span>
+                            </span>
+                            <div className="relative text-white z-10 rounded-full bg-zinc-950 py-1.5 pl-4 pr-3 ring-1 ring-white/10 text-xl font-thin uppercase">Connect</div>
+                            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-sky-400/0 via-sky-400/90 to-sky-400/0 transition-opacity duration-500 group-hover:opacity-40">
+                            </span>
+                        </button>
+
                     </Link>
                 </div>
             </div>
