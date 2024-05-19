@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProviders";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const ManageMyPosts = () => {
@@ -23,6 +25,40 @@ const ManageMyPosts = () => {
                 console.log(err);
             });
     }, [user]);
+
+    const handleDelete = async (id) => {
+        try {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will not be able to recover this post!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, keep it'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/delete-post/${id}`, {
+                        withCredentials: true,
+                    });
+                    if (data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Post Deleted Successfully',
+                        });
+                        setPosts(posts.filter(post => post._id !== id));
+                    }
+                }
+            });
+        } catch (err) {
+            console.log(err);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong',
+            });
+        }
+    }
+
 
     return (
         <div>
@@ -69,8 +105,8 @@ const ManageMyPosts = () => {
                                                 {new Date(post.deadline).toLocaleDateString()}
                                             </td>
                                             <td className="px-6 py-4 space-x-4">
-                                                <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                                                <Link to={`/update-post/${post._id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
+                                                <button onClick={() => handleDelete(post._id)} className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
                                             </td>
                                         </tr>
                                     ))}
