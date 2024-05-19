@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const VolunteerPost = () => {
     const post = useLoaderData();
@@ -11,7 +11,7 @@ const VolunteerPost = () => {
 
     return (
         <div>
-            <div className="container mx-auto mt-10 px-4">
+            <div className="container mx-auto px-4 my-10">
                 <div className="max-w-3xl mx-auto">
                     <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
                         <img className="w-full h-56 object-cover object-center" src={post.thumbnail} alt="blog" />
@@ -27,13 +27,16 @@ const VolunteerPost = () => {
                                 <span className="font-bold">Location: </span>
                                 {post.location}</p>
                             <p className="text-sm leading-relaxed mb-4 dark:text-gray-400">
+                                <span className="font-bold">No. Of Volunteer Needed: </span>
+                                {post.numberOfVolunteers}</p>
+                            <p className="text-sm leading-relaxed mb-4 dark:text-gray-400">
                                 <span className="font-bold">Organizer Name:</span>
                                 {post.user.name}</p>
                             <p className="text-sm leading-relaxed mb-4 dark:text-gray-400">
                                 <span className="font-bold">Organizer Email: </span>
                                 {post.user.email}</p>
 
-                            <button className="px-4 py-2 bg-indigo-500 text-white rounded-full focus:outline-none">Be a Volunteer</button>
+                            <Link to={`/be-a-volunteer/${post._id}`} className="px-4 py-2 bg-indigo-500 text-white rounded-full focus:outline-none">Be a Volunteer</Link>
                         </div>
                     </div>
                 </div>

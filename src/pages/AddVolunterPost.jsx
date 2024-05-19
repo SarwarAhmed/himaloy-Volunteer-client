@@ -24,7 +24,7 @@ const AddVolunteerPost = () => {
         const description = form.description.value;
         const category = form.category.options[form.category.selectedIndex].value;
         const deadline = startDate;
-        const numberOfVolunteers = form['number-of-volunteers'].value;
+        const numberOfVolunteers = parseInt(form['number-of-volunteers'].value);
         const location = form.location.value;
         const PostData = {
             title,
