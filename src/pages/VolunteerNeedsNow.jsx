@@ -40,7 +40,7 @@ const VolunteerNeedsNow = () => {
                     }
                 </div>
                 <div className='flex justify-center mt-6'>
-                    <button className='px-6 py-2 bg-indigo-500 text-white rounded-full focus:outline-none'>See All</button>
+                    <Link to="/need-volunteer" className='px-6 py-2 bg-indigo-500 text-white rounded-full focus:outline-none'>See All</Link>
                 </div>
             </div>
         </div>
