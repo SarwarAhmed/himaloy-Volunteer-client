@@ -37,7 +37,9 @@ const router = createBrowserRouter([
             },
             {
                 path: 'volunteer-post/:id',
-                element: <PrivateRoute><VolunteerPost /></PrivateRoute>
+                element: <PrivateRoute><VolunteerPost /></PrivateRoute>,
+                loader: ({ params }) =>
+                    fetch(`${import.meta.env.VITE_API_URL}/volunteer-post/${params.id}`),
             }
         ]
     }

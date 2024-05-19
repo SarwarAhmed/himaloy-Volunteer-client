@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Typewriter } from 'react-simple-typewriter'
+import PropTypes from 'prop-types';
 
 const Slide = ({ post }) => {
 
@@ -7,12 +8,12 @@ const Slide = ({ post }) => {
 
     return (
         <div
-            className='w-full bg-center bg-cover h-[38rem] rounded-lg'
+            className='w-full bg-center bg-cover h-96 sm:h-[32rem] xl:h-[43rem] rounded-lg'
             style={{
                 backgroundImage: `url(${thumbnail})`,
             }}
         >
-            <div className='flex items-center justify-center w-full h-full bg-gray-900/70'>
+            <div className='flex items-center justify-center w-full h-full bg-gray-900/70 rounded-lg'>
                 <div className='text-center'>
                     <h1 className='text-3xl font-semibold text-white lg:text-4xl'>
                         {/* {title} */}
@@ -22,11 +23,15 @@ const Slide = ({ post }) => {
                             cursor={true} cursorStyle='|' loop={Infinity} typeSpeed={100} deleteSpeed={100} delaySpeed={1000} />
                     </h1>
                     <br />
-                    <h2 className='text-lg font-semibold text-white lg:text-xl'>
-                        <span className='uppercase font-bold text-indigo-400'>Deadline: </span>
-                        {new Date(deadline).toLocaleDateString()}
-                        <span className='uppercase font-bold text-indigo-400'> No. Of Volunteer Needed: </span>
-                        {numberOfVolunteers}
+                    <h2 className='text-sm md:text-lg font-semibold text-white space-y-2 sm:space-y-0 flex flex-col sm:gap-2 sm:flex-row'>
+                        <div>
+                            <span className='uppercase font-bold text-indigo-400'>Deadline: </span>
+                            <span className='border-2 p-1 rounded'>{new Date(deadline).toLocaleDateString()}</span>
+                        </div>
+                        <div>
+                            <span className='uppercase font-bold text-indigo-400'> No. Of Volunteer Needed: </span>
+                            <span className='border-2 p-1 rounded'>{numberOfVolunteers}</span>
+                        </div>
                     </h2>
                     <br />
 
@@ -47,6 +52,10 @@ const Slide = ({ post }) => {
             </div>
         </div>
     )
+}
+
+Slide.propTypes = {
+    post: PropTypes.object.isRequired
 }
 
 export default Slide
