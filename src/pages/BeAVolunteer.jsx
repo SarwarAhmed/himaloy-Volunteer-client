@@ -29,6 +29,16 @@ const BeAVolunteer = () => {
             });
             return;
         }
+       
+        // if the No. of volunteers needed is 0 then it will show a message
+        if (parseInt(numberOfVolunteers) === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No volunteer needed',
+            });
+            return;
+        }
 
         const requestData = {
             postId: post._id,
