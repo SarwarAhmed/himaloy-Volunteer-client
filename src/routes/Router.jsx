@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import ManageMyPosts from "../pages/ManageMyPosts";
 import VolunteerPost from "../pages/VolunteerPost";
 import BeAVolunteer from "../pages/BeAVolunteer";
+import NeedVolunteerPage from "../pages/NeedVolunteerPage";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
             {
                 path: 'add-volunteer-post',
                 element: <PrivateRoute><AddVolunteerPost /></PrivateRoute>
+            },
+            {
+                path: 'need-volunteer',
+                element: <NeedVolunteerPage />,
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/posts`)
             },
             {
                 path: 'manage-my-posts',
