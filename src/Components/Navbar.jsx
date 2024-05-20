@@ -108,12 +108,7 @@ const Navbar = () => {
                                         <Link to="/manage-my-posts" className="justify-between">
                                             Manage My Post
                                         </Link>
-
-                                        <Link to="/profile" className="justify-between">
-                                            Profile
-                                        </Link>
                                     </li>
-                                    <li><a>Settings</a></li>
                                     <li>
                                         <button
                                             onClick={handleSignOut}

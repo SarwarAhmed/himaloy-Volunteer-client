@@ -23,16 +23,6 @@ const Slide = ({ post }) => {
                             cursor={true} cursorStyle='|' loop={Infinity} typeSpeed={100} deleteSpeed={100} delaySpeed={1000} />
                     </h1>
                     <br />
-                    <h2 className='text-sm md:text-lg font-semibold text-white space-y-2 sm:space-y-0 flex flex-col sm:gap-2 sm:flex-row'>
-                        <div>
-                            <span className='uppercase font-bold text-indigo-400'>Deadline: </span>
-                            <span className='border-2 p-1 rounded'>{new Date(deadline).toLocaleDateString()}</span>
-                        </div>
-                        <div>
-                            <span className='uppercase font-bold text-indigo-400'> No. Of Volunteer Needed: </span>
-                            <span className='border-2 p-1 rounded'>{numberOfVolunteers}</span>
-                        </div>
-                    </h2>
                     <br />
 
                     <Link
