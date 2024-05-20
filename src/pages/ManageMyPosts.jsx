@@ -3,10 +3,11 @@ import { AuthContext } from "../providers/AuthProviders";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { ThreeCircles } from "react-loader-spinner";
 
 
 const ManageMyPosts = () => {
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -25,6 +26,23 @@ const ManageMyPosts = () => {
                 console.log(err);
             });
     }, [user]);
+    
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center ">
+                <ThreeCircles
+
+                    visible={true}
+                    height="200"
+                    width="200"
+                    color="#4fa94d"
+                    ariaLabel="three-circles-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                />
+            </div>
+        );
+    }
 
     const handleDelete = async (id) => {
         try {

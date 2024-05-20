@@ -1,8 +1,28 @@
+import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProviders";
+import { ThreeCircles } from "react-loader-spinner";
 
 const NeedVolunteerPage = () => {
+    const { loading } = useContext(AuthContext)
     const posts = useLoaderData();
     //  title, description, thumbnail, category, location, numberOfVolunteers, deadline, user
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center ">
+                <ThreeCircles
+
+                    visible={true}
+                    height="200"
+                    width="200"
+                    color="#4fa94d"
+                    ariaLabel="three-circles-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                />
+            </div>
+        );
+    }
 
     console.log(posts);
     return (

@@ -7,10 +7,13 @@ import 'swiper/css/navigation'
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import Slide from './Slide'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
+import { AuthContext } from '../providers/AuthProviders'
+import { ThreeCircles } from 'react-loader-spinner'
 
 export default function Carousel() {
+    const { loading } = useContext(AuthContext)
 
     // upcomming three posts
     const [posts, setPosts] = useState([])
@@ -25,6 +28,23 @@ export default function Carousel() {
         }
         fetchPosts()
     }, [])
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center ">
+                <ThreeCircles
+
+                    visible={true}
+                    height="200"
+                    width="200"
+                    color="#4fa94d"
+                    ariaLabel="three-circles-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                />
+            </div>
+        );
+    }
 
     console.log(posts);
 
