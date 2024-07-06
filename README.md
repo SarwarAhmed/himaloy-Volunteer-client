@@ -1,6 +1,67 @@
 # Himaloyan Volunteer [Live Preview](https://himaloy.web.app/)
 ## Website Features
 
+[Server Site Repo](https://github.com/SarwarAhmed/himaloy-Volunteer-server)
+
+## Setup client site
+### Step 1: Clone the repository
+```
+git clone https://github.com/SarwarAhmed/himaloy-Volunteer-client.git
+```
+or
+```
+gh repo clone SarwarAhmed/himaloy-Volunteer-client
+```
+### Step 2
+```
+cd himaloy-volunteer-client
+```
+
+### Step 3
+```
+touch .env
+```
+
+### Step 4: Setup Firebase configuration `.env`
+```
+VITE_API_URL=localhot:3000
+
+VITE_APIKEY=apiKey
+VITE_AUTHDOMAIN=authDomain
+VITE_PROJECTID=projectId
+VITE_STORAGEBUCKET=storageBucket
+VITE_MESSAGINGSENDERID=messagingSenderId
+VITE_APPID=appId
+```
+### Step 5
+```
+npm install
+npm run dev
+```
+
+## Setup Server site
+```
+git clone https://github.com/SarwarAhmed/himaloy-volunteer-server.git
+```
+or
+```
+gh repo clone SarwarAhmed/himaloy-volunteer-server
+```
+
+```
+cd himaloy-volunteer-server
+```
+Setup .env
+```
+DB_USER=MongoDB_username
+DB_PASS=MongoDB_password
+JWT_SECRET=secret_code (random hex code 64 bit or 32w bit)
+```
+```
+npm install
+npm run dev
+```
+
 - User-friendly interface: Our website provides a clean and intuitive interface.
 
 - Responsive design: The website is designed to be responsive, ensuring that it looks great and functions well on different devices and screen sizes.
